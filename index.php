@@ -1,8 +1,14 @@
 <?php
+// 1. Общие настройки
 
-	define('ROOT', dirname(__FILE__));
-	require_once(ROOT.'/components/Router.php');
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
 
-	$router = new Router();
-	$router->run();
-?>
+// 2. Подключение файлов системы
+define('ROOT', dirname(__FILE__));
+require_once(ROOT.'/components/Router.php');
+require_once(ROOT.'/components/Db.php');
+
+// 3. Вызор Router
+$router = new Router();
+$router->run();

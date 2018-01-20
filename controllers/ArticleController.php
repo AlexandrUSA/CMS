@@ -1,7 +1,13 @@
 <?php
+
 class ArticleController
 {
-    public function actionIndex() {
-        echo 'ActionIndex';
-    }
+
+
+		public function actionList()
+		{
+			return true;
+		}
+
+
 }

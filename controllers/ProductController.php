@@ -1,7 +1,13 @@
 <?php
+
 class ProductController
 {
-    public function actionList() {
-        echo 'ActionList Product';
-    }
+
+
+		public function actionList()
+		{
+			return true;
+		}
+
+
 }

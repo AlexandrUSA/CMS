@@ -1,17 +1,25 @@
 <?php
+
 class Router
 {
+
 	private $routes;
+
 	public function __construct()
-    {
-        $routesPath = ROOT.'/config/routes.php';
-        $this->routes = include($routesPath);
-    }
-    public function getURI() {
-        if(!empty($_SERVER['REQUEST_URI'])) {
-            return trim($_SERVER['REQUEST_URI'], '/');
-        }
-    }
+	{
+		$routesPath = ROOT.'/config/routes.php';
+		$this->routes = include($routesPath);
+	}
+
+// Return type
+
+	private function getURI()
+	{
+		if (!empty($_SERVER['REQUEST_URI'])) {
+		return trim($_SERVER['REQUEST_URI'], '/');
+		}
+	}
+
     public function run() {
 	    // Получили ури пользователя
 	    $uri = $this->getURI();
@@ -37,7 +45,7 @@ class Router
                 $controllerObject = new $controller;
                //И вызываем Нужный нам метод с массивом параметров
                 $result = call_user_func_array([$controllerObject, $action], $parameters);
-                if($result) {break;}
+                if($result) break;
            }
        }
     }
